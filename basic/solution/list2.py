@@ -48,6 +48,9 @@ def linear_merge(list1, list2):
   # LAB(replace solution)
   # return
   # LAB(end solution)
+  
+def linear_merge_fast(list1, list2):
+  return sorted(list1 + list2)
 
 # Note: the solution above is kind of cute, but unforunately list.pop(0)
 # is not constant time with the standard python list implementation, so
@@ -84,6 +87,14 @@ def main():
   test(linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb']),
        ['aa', 'aa', 'aa', 'bb', 'bb'])
 
+  print
+  print 'linear_merge'
+  test(linear_merge_fast(['aa', 'xx', 'zz'], ['bb', 'cc']),
+       ['aa', 'bb', 'cc', 'xx', 'zz'])
+  test(linear_merge_fast(['aa', 'xx'], ['bb', 'cc', 'zz']),
+       ['aa', 'bb', 'cc', 'xx', 'zz'])
+  test(linear_merge_fast(['aa', 'aa'], ['aa', 'bb', 'bb']),
+       ['aa', 'aa', 'aa', 'bb', 'bb'])
 
 if __name__ == '__main__':
   main()
